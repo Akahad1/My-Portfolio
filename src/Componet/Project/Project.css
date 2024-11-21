@@ -1,0 +1,12 @@
+.fixed-container {
+    /* position: fixed; */
+   
+   
+    overflow: hidden; /* This prevents the inner div from overflowing the fixed container */
+  }
+  
+  .inner-div {
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* This allows the inner div to have scrollbars when content overflows */
+  }
