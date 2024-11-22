@@ -70,17 +70,17 @@ const AddSkils = () => {
 
   return (
     <div>
-      <div className="bg-center place-items-center grid mt-10 mb-10 lg:mr-10 mr-1 ml-6">
+      <div className="bg-center  place-items-center grid mt-10 mb-10 lg:mr-10 mr-1 ml-6">
         <div className="lg:w-2/3 md:w-96 border w-80 bg-slate-700 border-slate-900 rounded-2xl">
           <h1 className="lg:text-3xl md:text-3xl lg:ml-8 lg:mt-5 ml-16 mt-5 text-xl text-white">
-            Create Project
+            Create Skills
           </h1>
 
           <div className="card-body">
             <form onSubmit={singUpinPassword}>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-white">Project Name</span>
+                  <span className="label-text text-white">Skill Name</span>
                 </label>
                 <input
                   type="text"
