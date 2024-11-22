@@ -17,6 +17,8 @@ import GetProject from "../../Componet/Dashboard/Project/GetProject/GetProject";
 import GetSkills from "../../Componet/Dashboard/Skiills/GetSkills/GetSkills";
 import ProjectDetails from "../../Componet/ProjectDetails/ProjectDetails";
 import GetBlog from "../../Componet/Dashboard/Blog/GetBlog/GetBlog";
+import Login from "../../Componet/Login/Login";
+import ProtectRoute from "../ProtectRoute/ProtectRoute";
 
 const route = createBrowserRouter([
   {
@@ -29,7 +31,11 @@ const route = createBrowserRouter([
       { path: "/project", element: <Project></Project> },
       { path: "/amerkitchen", element: <Muntajat></Muntajat> },
 
-      { path: "/blog", element: <Blog></Blog> },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
+        loader: async () => fetch(`http://localhost:5000/api/blog`),
+      },
       {
         path: "/project/:id",
         element: <ProjectDetails></ProjectDetails>,
@@ -40,27 +46,65 @@ const route = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard></Dashboard>,
+    element: (
+      <ProtectRoute>
+        <Dashboard></Dashboard>
+      </ProtectRoute>
+    ),
     children: [
-      { path: "addBlog", element: <AddBlog></AddBlog> },
-      { path: "addSkils", element: <AddSkils></AddSkils> },
+      {
+        path: "addBlog",
+        element: (
+          <ProtectRoute>
+            <AddBlog></AddBlog>
+          </ProtectRoute>
+        ),
+      },
+      {
+        path: "addSkils",
+        element: (
+          <ProtectRoute>
+            <AddSkils></AddSkils>
+          </ProtectRoute>
+        ),
+      },
       {
         path: "addProject",
-        element: <AddProject></AddProject>,
+        element: (
+          <ProtectRoute>
+            <AddProject></AddProject>
+          </ProtectRoute>
+        ),
       },
       {
         path: "getProject",
-        element: <GetProject></GetProject>,
+        element: (
+          <ProtectRoute>
+            <GetProject></GetProject>
+          </ProtectRoute>
+        ),
       },
       {
         path: "getSkils",
-        element: <GetSkills></GetSkills>,
+        element: (
+          <ProtectRoute>
+            <GetSkills></GetSkills>
+          </ProtectRoute>
+        ),
       },
       {
         path: "getBlog",
-        element: <GetBlog></GetBlog>,
+        element: (
+          <ProtectRoute>
+            <GetBlog></GetBlog>
+          </ProtectRoute>
+        ),
       },
     ],
+  },
+  {
+    path: "/login",
+    element: <Login></Login>,
   },
 ]);
 export default route;

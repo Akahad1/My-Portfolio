@@ -28,7 +28,7 @@ const Project = () => {
       {items.map((item) => (
         <div
           key={item._id}
-          className="card lg:w-96 md:w-96 w-80 lg:ml-0 md:ml-0 ml-6 bg-gray-900 hover:shadow-md  hover:shadow-slate-800 "
+          className="card mb-3 lg:w-96 md:w-96 w-80 lg:ml-0 md:ml-0 ml-6 bg-gray-900 hover:shadow-md  hover:shadow-slate-800 "
           data-aos="fade-right"
         >
           <figure>
