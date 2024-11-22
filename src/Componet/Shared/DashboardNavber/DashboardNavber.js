@@ -30,9 +30,19 @@ const DashboardNavber = ({ cosleSidebar }) => {
                 Add_Skils
               </button>{" "}
             </Link>
+            <Link onClick={cosleSidebar} to="/dashboard/getSkils">
+              <button className="btn   lg:w-52 md:w-44 w-52 mt-6">
+                Get_Skils
+              </button>{" "}
+            </Link>
             <Link onClick={cosleSidebar} to="/dashboard/addProject">
               <button className="btn   lg:w-52 md:w-44 w-52 mt-6">
-                Project
+                Add_Project
+              </button>{" "}
+            </Link>
+            <Link onClick={cosleSidebar} to="/dashboard/getProject">
+              <button className="btn   lg:w-52 md:w-44 w-52 mt-6">
+                Get_Project
               </button>{" "}
             </Link>
           </div>

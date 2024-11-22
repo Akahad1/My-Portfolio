@@ -13,6 +13,8 @@ import Dashboard from "../../Componet/Dashboard/Dashboard";
 import AddProject from "../../Componet/Dashboard/Project/AddProject/AddProject";
 import AddSkils from "../../Componet/Dashboard/Skiills/AddSkils/AddSkils";
 import AddBlog from "../../Componet/Dashboard/Blog/AddBlog/AddBlog";
+import GetProject from "../../Componet/Dashboard/Project/GetProject/GetProject";
+import GetSkills from "../../Componet/Dashboard/Skiills/GetSkills/GetSkills";
 
 const route = createBrowserRouter([
   {
@@ -35,7 +37,18 @@ const route = createBrowserRouter([
     children: [
       { path: "addBlog", element: <AddBlog></AddBlog> },
       { path: "addSkils", element: <AddSkils></AddSkils> },
-      { path: "addProject", element: <AddProject></AddProject> },
+      {
+        path: "addProject",
+        element: <AddProject></AddProject>,
+      },
+      {
+        path: "getProject",
+        element: <GetProject></GetProject>,
+      },
+      {
+        path: "getSkils",
+        element: <GetSkills></GetSkills>,
+      },
     ],
   },
 ]);
