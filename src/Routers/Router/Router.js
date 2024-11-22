@@ -9,9 +9,10 @@ import Project from "../../Componet/Project/Project";
 import Resale from "../../Componet/Resale/Resale";
 import Muntajat from "../../Componet/AmerkithenDetal/Muntajat";
 import Dashboard from "../../Componet/Dashboard/Dashboard";
-import AddBlog from "../../Componet/Dashboard/AddBlog/AddBlog";
-import AddSkils from "../../Componet/Dashboard/AddSkils/AddSkils";
-import AddProject from "../../Componet/Dashboard/AddProject/AddProject";
+
+import AddProject from "../../Componet/Dashboard/Project/AddProject/AddProject";
+import AddSkils from "../../Componet/Dashboard/Skiills/AddSkils/AddSkils";
+import AddBlog from "../../Componet/Dashboard/Blog/AddBlog/AddBlog";
 
 const route = createBrowserRouter([
   {
