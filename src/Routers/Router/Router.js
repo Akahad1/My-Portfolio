@@ -4,9 +4,9 @@ import Blog from "../../Componet/Blog/Blog";
 import Contract from "../../Componet/Contact/Contract";
 import Home from "../../Componet/Home/Home";
 import Main from "../../Componet/Main/Main";
-import Procodingdetais from "../../Componet/ProcodingDetals/Procodingdetais";
+
 import Project from "../../Componet/Project/Project";
-import Resale from "../../Componet/Resale/Resale";
+
 import Muntajat from "../../Componet/AmerkithenDetal/Muntajat";
 import Dashboard from "../../Componet/Dashboard/Dashboard";
 
@@ -16,6 +16,7 @@ import AddBlog from "../../Componet/Dashboard/Blog/AddBlog/AddBlog";
 import GetProject from "../../Componet/Dashboard/Project/GetProject/GetProject";
 import GetSkills from "../../Componet/Dashboard/Skiills/GetSkills/GetSkills";
 import ProjectDetails from "../../Componet/ProjectDetails/ProjectDetails";
+import GetBlog from "../../Componet/Dashboard/Blog/GetBlog/GetBlog";
 
 const route = createBrowserRouter([
   {
@@ -27,8 +28,7 @@ const route = createBrowserRouter([
       { path: "/conract", element: <Contract></Contract> },
       { path: "/project", element: <Project></Project> },
       { path: "/amerkitchen", element: <Muntajat></Muntajat> },
-      { path: "/procoding", element: <Procodingdetais></Procodingdetais> },
-      { path: "/resale", element: <Resale></Resale> },
+
       { path: "/blog", element: <Blog></Blog> },
       {
         path: "/project/:id",
@@ -55,6 +55,10 @@ const route = createBrowserRouter([
       {
         path: "getSkils",
         element: <GetSkills></GetSkills>,
+      },
+      {
+        path: "getBlog",
+        element: <GetBlog></GetBlog>,
       },
     ],
   },
