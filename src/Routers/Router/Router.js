@@ -15,6 +15,7 @@ import AddSkils from "../../Componet/Dashboard/Skiills/AddSkils/AddSkils";
 import AddBlog from "../../Componet/Dashboard/Blog/AddBlog/AddBlog";
 import GetProject from "../../Componet/Dashboard/Project/GetProject/GetProject";
 import GetSkills from "../../Componet/Dashboard/Skiills/GetSkills/GetSkills";
+import ProjectDetails from "../../Componet/ProjectDetails/ProjectDetails";
 
 const route = createBrowserRouter([
   {
@@ -29,6 +30,12 @@ const route = createBrowserRouter([
       { path: "/procoding", element: <Procodingdetais></Procodingdetais> },
       { path: "/resale", element: <Resale></Resale> },
       { path: "/blog", element: <Blog></Blog> },
+      {
+        path: "/project/:id",
+        element: <ProjectDetails></ProjectDetails>,
+        loader: async ({ params }) =>
+          fetch(`http://localhost:5000/api/projcet/${params.id}`),
+      },
     ],
   },
   {

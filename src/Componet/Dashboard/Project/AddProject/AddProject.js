@@ -15,9 +15,6 @@ const AddProject = () => {
     const feature = form.feature.value;
     const description = form.description.value;
 
-    const toolsArray = ToolsTechnologies.split(",").map((tool) => tool.trim());
-    const featuresArray = feature.split(",").map((feature) => feature.trim());
-
     const formData = new FormData();
 
     // Append all form data
@@ -25,8 +22,8 @@ const AddProject = () => {
     formData.append("LiveLink", LiveLink);
     formData.append("ClientSideGithubLink", ClientSideGithubLink);
     formData.append("ServerSideGithubLink", ServerSideGithubLink);
-    formData.append("ToolsTechnologies", JSON.stringify(toolsArray));
-    formData.append("feature", JSON.stringify(featuresArray));
+    formData.append("ToolsTechnologies", ToolsTechnologies);
+    formData.append("feature", feature);
     formData.append("description", description);
 
     // Append the selected files

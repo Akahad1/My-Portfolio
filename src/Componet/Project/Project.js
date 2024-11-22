@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Project.css";
-import muntajat1 from "../../imges/Images/Muntajat.com.png";
-import cyclegor from "../../imges/Images/Cycalgor-com.png";
-import codermaster from "../../imges/Images/CoderMaster.Imges.png";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -48,7 +45,7 @@ const Project = () => {
                   Live Site
                 </button>
               </a>
-              <Link to="/amerkitchen">
+              <Link to={item?._id}>
                 <button className="btn btn-outline btn-success">Details</button>
               </Link>
             </div>
