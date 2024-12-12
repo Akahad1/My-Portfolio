@@ -41,17 +41,18 @@ const Main = () => {
               Look forward to Working with a creative team to improve my skill
               and add value. Building easy-to-use, user-friendly websites, and
               applications is truly a passion of mine. I am an expert in HTML,
-              CSS, Bootstrap, Tailwind, JavaScripts, React, Firebase, ExpressJs,
-              NodeJs, and MongoDB.In addition to my knowledge, I consider myself
-              a quick learner, self-motivated, responsible, and disciplined
-              person who can work under pressure and solve problems in critical
-              situations with analytical knowledge and the latest technolog.
+              CSS, Bootstrap, Tailwind, JavaScripts,TypeScript, Redux, Mongooes,
+              React, Firebase, ExpressJs, NodeJs, and MongoDB.In addition to my
+              knowledge, I consider myself a quick learner, self-motivated,
+              responsible, and disciplined person who can work under pressure
+              and solve problems in critical situations with analytical
+              knowledge and the latest technolog.
             </p>
-            <a href="https://drive.google.com/file/d/1ZQcubXMYmbnZ3RL54PgRBOvh4RKQM4Fv/view">
-              <button className="btn text-white ">Download Resume</button>
+            <a href="https://drive.google.com/uc?export=download&id=1XC09Vcufe0G6D-wdXTJ4EKDKO9GaavZK">
+              <button className="btn text-white">Download Resume</button>
             </a>
 
-            <p className="py-2 text-white">FIND WITH ME</p>
+            <p className="py-2  text-white">FIND WITH ME</p>
             <div className="mt-5">
               <span className="bg-slate-600 p-3 rounded-full mr-3 ">
                 <a href="https://www.linkedin.com/in/ashraful-karim-saad/">
