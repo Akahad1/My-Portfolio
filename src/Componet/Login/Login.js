@@ -44,9 +44,11 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100 p-4">
-      <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold text-center mb-6">Log In</h2>
+    <div className="flex justify-center items-center min-h-screen bg-gradient-to-b from-black to-gray-800 p-4">
+      <div className="bg-slate-800 border border-slate-900 p-6 rounded-lg shadow-md w-full max-w-md">
+        <h2 className="text-2xl text-white font-bold text-center mb-6">
+          Log In
+        </h2>
 
         <form className="space-y-4" onSubmit={logInHandler}>
           {/* Email */}
@@ -54,7 +56,7 @@ const Login = () => {
             type="email"
             name="email"
             placeholder="Email"
-            className="w-full p-2 border border-gray-300 rounded-md"
+            className="w-full p-2 border bg-slate-700 text-white border-gray-300 rounded-md"
             required
           />
 
@@ -63,7 +65,7 @@ const Login = () => {
             type="password"
             name="password"
             placeholder="Password"
-            className="w-full p-2 border border-gray-300 rounded-md"
+            className="w-full p-2 border bg-slate-700 text-white border-gray-300 rounded-md"
             required
           />
 

@@ -1,8 +1,9 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 const AddBlog = () => {
+  const [files, setFiles] = useState([]);
   // State for the array
   const singUpinPassword = async (event) => {
     event.preventDefault();
@@ -17,8 +18,12 @@ const AddBlog = () => {
     formData.append("title", title);
 
     formData.append("description", description);
-
+    // Append the selected files
+    files.forEach((file) => {
+      formData.append("images", file);
+    });
     console.log(formData);
+
     try {
       const response = await axios.post(
         "http://localhost:5000/api/blog/createblog", // Ensure this endpoint is correct
@@ -30,15 +35,38 @@ const AddBlog = () => {
         }
       );
       form.reset();
-      toast.success("skils added successfully.");
+      toast.success("blog added successfully.");
     } catch (error) {
-      toast.success("skils added successfully");
+      toast.success("Blog added successfully");
       form.reset();
     }
   };
+  const handleFileChange = (event) => {
+    const selectedFiles = Array.from(event.target.files); // Convert FileList to an array
+    setFiles((prevFiles) => [...prevFiles, ...selectedFiles]); // Append new files to state
+  };
 
   // Render previews for the selected files
-
+  const renderFilePreviews = () => {
+    return files.map((file, index) => {
+      const fileUrl = URL.createObjectURL(file); // Create temporary URL for the file
+      return (
+        <div key={index} className="file-preview">
+          <p>{file.name}</p>
+          {file.type.startsWith("image") ? (
+            <img
+              src={fileUrl}
+              alt={file.name}
+              width="100"
+              className="file-preview-image"
+            />
+          ) : (
+            <span>Preview not available</span>
+          )}
+        </div>
+      );
+    });
+  };
   return (
     <div>
       <div className="bg-center  place-items-center grid mt-10 mb-10 lg:mr-10 mr-1 ml-6">
@@ -61,6 +89,30 @@ const AddBlog = () => {
                   required
                 />
               </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-white">Photo URLs</span>
+                </label>
+                <label
+                  htmlFor="photourl"
+                  className="btn cursor-pointer w-full text-center py-2 input-bordered"
+                >
+                  {files && files.length > 0
+                    ? `Selected: ${files.length} file(s)`
+                    : "Choose Files"}
+                </label>
+                <input
+                  id="photourl"
+                  type="file"
+                  name="photourl"
+                  className="hidden"
+                  onChange={handleFileChange}
+                  multiple // Enable multiple file selection
+                  required
+                />
+              </div>
+
+              {renderFilePreviews()}
 
               <div className="form-control">
                 <label className="label">

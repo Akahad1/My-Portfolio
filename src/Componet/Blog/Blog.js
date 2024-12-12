@@ -1,29 +1,33 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
-import { formatDistanceToNow } from "date-fns";
+import { Link, useLoaderData } from "react-router-dom";
+import { format } from "date-fns";
 
 const Blog = () => {
-  const data = useLoaderData();
-  console.log(data);
+  const blogs = useLoaderData();
+  console.log(blogs);
   return (
-    <div className="">
-      <p className="text-center text-2xl mt-7 mb-7 text-white">My Blog</p>
-      <div className="space-y-6 ml-3 mr-3 lg:mr-10">
-        {data?.data.map((blog) => (
-          <div
+    <div className="min-h-screen">
+      <p className="text-center text-2xl mt-7 mb-7 text-white font-semibold">
+        My Blog
+      </p>
+      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-6">
+        {blogs.data.map((blog) => (
+          <Link
+            to={`/blog/${blog.id}`}
             key={blog.id}
-            className="p-6  shadow-md border border-slate-500 rounded-lg hover:shadow-lg transition-shadow"
+            className="block p-6 shadow-md border border-slate-700 rounded-lg hover:shadow-xl transition-shadow bg-gray-800"
           >
-            <h2 className="text-2xl font-bold  text-white">{blog.title}</h2>
-            <p className="mt-6 text-sm  text-white">
-              {" "}
-              Posted{" "}
-              {formatDistanceToNow(new Date(blog.createdAt), {
-                addSuffix: true,
-              })}
+            <img
+              src={blog.images}
+              alt={blog.title}
+              className="w-full h-48 object-cover rounded-md"
+            />
+            <p className="text-sm text-gray-400 mt-3">
+              {format(new Date(blog.createdAt), "MMMM dd, yyyy")}{" "}
+              {blog.category}
             </p>
-            <p className="mt-4  text-white">{blog.description}</p>
-          </div>
+            <h2 className="text-xl font-bold text-white mt-3">{blog.title}</h2>
+          </Link>
         ))}
       </div>
     </div>

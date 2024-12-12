@@ -35,36 +35,42 @@ const GetProject = () => {
   }, []);
   return (
     <div>
-      <div className="overflow-x-auto mt-5 flex items-center justify-center h-screen bg-gradient-to-b from-black to-gray-800 mr-3">
-        <table className="table w-full">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Project Name</th>
-              <th>Live Link</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            {items.map((order, i) => (
-              <tr key={i}>
-                <th>{i + 1}</th>
-
-                <td>{order.ProjectName}</td>
-                <td>{order.LiveLink}</td>
-                <td>
-                  <button
-                    onClick={() => deleteItem(order._id)}
-                    className="btn btn-secondary"
-                  >
-                    Delete
-                  </button>
-                  <Toaster></Toaster>
-                </td>
+      <div className="overflow-x-auto rounded-lg shadow-lg p-4 mt-5 mx-3">
+        <div className="flex items-center justify-center h-screen">
+          <table className="table-auto w-full text-left border-collapse">
+            <thead className="bg-gray-700 text-white">
+              <tr>
+                <th className="px-4 py-3">#</th>
+                <th className="px-4 py-3">Name</th>
+                <th className="px-4 py-3">Live Link</th>
+                <th className="px-4 py-3 text-center">Delete</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="bg-gray-100">
+              {items.map((porject, i) => (
+                <tr
+                  key={i}
+                  className=" text-white hover:bg-slate-800 bg-slate-900 border border-slate-600 transition duration-200 ease-in-out"
+                >
+                  <td className="px-4 py-3 text-white ">{i + 1}</td>
+                  <td className="px-4 py-3 text-white">
+                    {porject?.ProjectName}
+                  </td>
+                  <td className="px-4 py-3 text-white">{porject?.LiveLink}</td>
+                  <td className="px-4 py-3 text-center">
+                    <button
+                      onClick={() => deleteItem(porject._id)}
+                      className="btn btn-secondary bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition duration-300"
+                    >
+                      Delete
+                    </button>
+                    <Toaster />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

@@ -143,7 +143,7 @@ const AddProject = () => {
 
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Photo URLs</span>
+                  <span className="label-text text-white">Photo URLs</span>
                 </label>
                 <label
                   htmlFor="photourl"

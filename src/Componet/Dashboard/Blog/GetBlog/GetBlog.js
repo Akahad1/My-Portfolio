@@ -35,36 +35,42 @@ const GetBlog = () => {
   }, []);
   return (
     <div>
-      <div className="overflow-x-auto flex items-center justify-center h-screen mt-5 bg-gradient-to-b from-black to-gray-800 mr-3">
-        <table className="table w-full">
-          <thead>
-            <tr>
-              <th></th>
-              <th> Title</th>
-              <th>Description</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            {items.map((blog, i) => (
-              <tr key={i}>
-                <th>{i + 1}</th>
-
-                <td>{blog?.title}</td>
-                <td>{blog?.description?.slice(0, 20)}</td>
-                <td>
-                  <button
-                    onClick={() => deleteItem(blog._id)}
-                    className="btn btn-secondary"
-                  >
-                    Delete
-                  </button>
-                  <Toaster></Toaster>
-                </td>
+      <div className="overflow-x-auto rounded-lg shadow-lg p-4 mt-5 mx-3">
+        <div className="flex items-center justify-center h-screen">
+          <table className="table-auto w-full text-left border-collapse">
+            <thead className="bg-gray-700 text-white">
+              <tr>
+                <th className="px-4 py-3">#</th>
+                <th className="px-4 py-3">Title</th>
+                <th className="px-4 py-3">Description</th>
+                <th className="px-4 py-3 text-center">Delete</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="bg-gray-100">
+              {items.map((blog, i) => (
+                <tr
+                  key={i}
+                  className=" text-white hover:bg-slate-800 bg-slate-900 border border-slate-600 transition duration-200 ease-in-out"
+                >
+                  <td className="px-4 py-3 text-white ">{i + 1}</td>
+                  <td className="px-4 py-3 text-white">{blog?.title}</td>
+                  <td className="px-4 py-3 text-white">
+                    {blog?.description?.slice(0, 20)}...
+                  </td>
+                  <td className="px-4 py-3 text-center">
+                    <button
+                      onClick={() => deleteItem(blog._id)}
+                      className="btn btn-secondary bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition duration-300"
+                    >
+                      Delete
+                    </button>
+                    <Toaster />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
