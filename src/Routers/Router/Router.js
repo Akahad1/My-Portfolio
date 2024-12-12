@@ -19,6 +19,7 @@ import ProjectDetails from "../../Componet/ProjectDetails/ProjectDetails";
 import GetBlog from "../../Componet/Dashboard/Blog/GetBlog/GetBlog";
 import Login from "../../Componet/Login/Login";
 import ProtectRoute from "../ProtectRoute/ProtectRoute";
+import BlogDetails from "../../Componet/Blog/BlogDetails";
 
 const route = createBrowserRouter([
   {
@@ -41,6 +42,12 @@ const route = createBrowserRouter([
         element: <ProjectDetails></ProjectDetails>,
         loader: async ({ params }) =>
           fetch(`http://localhost:5000/api/projcet/${params.id}`),
+      },
+      {
+        path: "/blog/:id",
+        element: <BlogDetails></BlogDetails>,
+        loader: async ({ params }) =>
+          fetch(`http://localhost:5000/api/blog/${params.id}`),
       },
     ],
   },
